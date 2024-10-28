@@ -90,7 +90,7 @@ To receive full credit, you must submit the following items to INGInious by the 
 * **multi-lookup.h**: A header file containing prototypes for any function you write as part of your program.
 
 ## Extra Credit
-There are a few options for receiving extra credit on this assignment. Completion of each of the following items will gain you 5 points of extra credit per item. If you alter any files other than *multi-lookup.c* and *multi-lookup.h* to accomplish the extra credit make sure you submit them as part of your assignment by taring up your whole project directory as a tar.gz file and submit to the extra credit option on Turnin. Make sure you turn in your original function project prior to attempting any of the extra credit.
+There are a few options for receiving extra credit on this assignment. Completion of each of the following items will gain you 5 points of extra credit per item. If you alter any files other than *multi-lookup.c* and *multi-lookup.h* to accomplish the extra credit make sure you submit them as part of your assignment by taring up your whole project directory as a tar.gz file and submit to the extra credit option on INGInious. Make sure you turn in your original function project prior to attempting any of the extra credit.
 
 You should submit all the code in one file with a readme.md that lists off which extra credit you solved in the tar.gz or alternatively you should have one folder for each extra credit with the folder name representing the extra credit solved.
 
