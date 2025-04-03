@@ -77,6 +77,7 @@ You may use the following libraries and code to complete this assignment, as wel
 * Any functions listed in util.h
 * Any functions listed in queue.h
 * Any functions in the C Standard Library
+* Any function in the unistd.h package
 * Standard Linux pthread functions
 * Standard Linux Random Number Generator functions
 * Standard Linux le i/o functions
