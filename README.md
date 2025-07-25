@@ -18,10 +18,10 @@ Figure 1: System Architecture
 Your application will take as input a set of name files. Names files contain one hostname per line. Each name file should be serviced by a single requester thread from the requester thread pool.
 
 ### Requester Threads
-The requester thread pool services a set of name files, each of which contains a list of domain names. Each name that is read from each of the files is placed on a FIFO queue. If a thread tries to write to the queue but finds that it is full, it should sleep for a random period of time between 0 and 100 microseconds.
+The requester thread pool services a set of name files, each of which contains a list of domain names. Each name that is read from each of the files is placed on a bounded buffer (e.g. stack or FIFO queue). If a thread tries to write to the bounded buffer but finds that it is full, it should sleep for a random period of time between 0 and 100 microseconds.
 
 ### Resolver Threads
-The second thread pool is comprised of a set of **THREAD_MAX** resolver threads. The resolver thread pool services the FIFO queue by taking a name of the queue and querying its IP address. After the name has been mapped to an IP address, the output is written to a line in the `results.txt` file in the following format:
+The second thread pool is comprised of a set of **THREAD_MAX** resolver threads. The resolver thread pool services the bounded buffer by taking a name off the bounded buffer and querying its IP address. After the name has been mapped to an IP address, the output is written to a line in the `results.txt` file in the following format:
 ```
 www.google.com,74.125.224.81
 ```
