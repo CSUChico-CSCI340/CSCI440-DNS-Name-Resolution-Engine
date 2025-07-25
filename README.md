@@ -1,6 +1,6 @@
-CSCI340-DNS-Name-Resolution-Engine
+CSCI440-DNS-Name-Resolution-Engine
 ==================================
-## CSCI340 - Operating Systems
+## CSCI440 - Operating Systems
 Adapted from University of Colorado at Boulder CSCI3753 Assignment
 
 ## Introduction
@@ -26,10 +26,22 @@ www.google.com,74.125.224.81
 ```
 
 ### Synchronization and Deadlock
-Your application should synchronize access to shared resources and avoid deadlock. You should use mutexes and/or semaphores to meet this requirement. There are at least two shared resources that must be protected: the queue and the output file. Neither of these resources is thread-safe by default.
+Your application should synchronize access to shared resources and avoid deadlock. **You must use mutexes and/or semaphores to meet this requirement**. There are at least two shared resources that must be protected: the queue and the output file. Neither of these resources is thread-safe by default.
 
 ### Ending the Program
 Your program must end after all the names in each file have been serviced by the application. This means that all the hostnames in all the input files have received a corresponding line in the output file.
+
+## Hand Out Instructions
+I recommend you use an Ubuntu Linux virtual machine to complete this assignment. Alternatively, you can
+use ecc-linux (although this hasn’t been tested) or your native Linux install.
+
+Download this repository as a zip file and then extract it where you would like to store your project files. An example for downloading and extracting the zip file is below, assuming you are in your home directory (you may remove the main.zip file after unzipping it):
+
+```bash
+~$ wget https://github.com/CSUChico-CSCI340/CSCI440-DNS-Name-Resolution-Engine/archive/refs/heads/main.zip
+~$ unzip main.zip
+~$ cd CSCI440-DNS-Name-Resolution-Engine/DNS-handout/
+```
 
 ## What's Included
 Some files are included with this assignment for your benefit. You are not required to use these files, but they may prove helpful.
@@ -80,34 +92,34 @@ You may use the following libraries and code to complete this assignment, as wel
 * Any function in the unistd.h package
 * Standard Linux pthread functions
 * Standard Linux Random Number Generator functions
-* Standard Linux le i/o functions
+* Standard Linux I/O functions
 
-If you would like to use additional external libraries, you must clear it with me first. You will not be allowed to use pre-existing thread-safe queue or file i/o libraries since the point of this assignment is to teach you how to make non-thread-safe resources thread-safe.
+If you would like to use additional external libraries, you must clear it with me first. You will not be allowed to use pre-existing thread-safe queue or file I/O libraries since the point of this assignment is to teach you how to make non-thread-safe resources thread-safe.
 
 ## What You Must Provide
-To receive full credit, you must submit the following items to INGInious by the due date.
+To receive full credit, you must submit the following items to [INGInious](https://inginious.csuchico.edu/) by the due date.
 
 * **multi-lookup.c**: Your program, conforming to the above requirements
 * **multi-lookup.h**: A header file containing prototypes for any function you write as part of your program.
 
 ## Extra Credit
-There are a few options for receiving extra credit on this assignment. Completion of each of the following items will gain you 5 points of extra credit per item. If you alter any files other than *multi-lookup.c* and *multi-lookup.h* to accomplish the extra credit make sure you submit them as part of your assignment by taring up your whole project directory as a tar.gz file and submit to the extra credit option on INGInious. Make sure you turn in your original function project prior to attempting any of the extra credit.
+There are a few options for receiving extra credit on this assignment. Completion of each of the following items will gain you 5 points of extra credit per item. If you alter any files other than *multi-lookup.c* and *multi-lookup.h* to accomplish the extra credit make sure you submit them as part of your assignment by taring up your whole project directory as a tar.gz file and submit to the extra credit option on INGInious. **Make sure you turn in your original functioning project (which synchronizes access to shared resources using mutexes and/or semaphores) prior to attempting any of the extra credit**. 
 
-You should submit all the code in one file with a readme.md that lists off which extra credit you solved in the tar.gz or alternatively you should have one folder for each extra credit with the folder name representing the extra credit solved.
+You should submit all the extra credit code in one tar.gz file. This tar file should contain a README.md that lists off which extra credit you solved and one or more folders for each extra credit, with the folder name representing the extra credit solved. Depending on the extra credits you complete, you may want to keep a copy of your original functioning program in a folder separate from your extra credit folder(s).
 
 * **Multiple IP Addresses**: Many hostnames return more than a single IP address. Add support for listing an arbitrary number of addresses to your program. These addresses should be printed to the output file as additional comma-separated strings after the hostname. For example:
 ```
 www.google.com,74.125.224.81,76.125.232.80,75.125.211.70
 ```
 You may find it necessary to modify code in the util.h and util.c files to add this functionality. If you do this, please maintain backwards compatibility with the existing util.h functions. This is most easily done by adding new function instead of modifying the existing ones.
-* **IPv6 Support and Testing**: Add support for IPv6 IP addresses and find an IPv6 aware environment where you can test this support. Since IPv6 is relatively new, finding an environment for testing this support is probably harder than adding it. You may find it necessary to modify code in util.h and util.c to complete this item. If you do so, please maintain backward compatibility with the existing code.
-* **Matching Number of Threads to Number of Cores**: Make your program dynamically detect the number of cores available on a system and set the number of resolver threads to take into account the number of cores. I would recommend starting with this in trying to get extra credit on this assignment.
-* **Full-Loop Lookups**: Make each requester thread query the output file every 250ms to detect when each of its requests have been filled. Requester threads should print a message to the user with the IP address of each hostname, and should not exit until all of each threads requests have been satised.
+* **Matching Number of Threads to Number of Cores**: Make your program dynamically detect the number of cores available on a system and set the number of resolver threads to take into account the number of cores. If you are trying to get extra credit on this assignment, I recommend starting with this option.
+* **IPv6 Support and Testing**: Add support for IPv6 IP addresses and find an IPv6 aware environment where you can test this support. IPv6 is relatively new, so if you are unable to test this support at your home, you should try testing it at another location (such as on campus). You may find it necessary to modify code in util.h and util.c to complete this item. If you do so, please maintain backward compatibility with the existing code.
+* **Full-Loop Lookups**: Make each requester thread query the output file every 250ms to detect when each of its requests have been filled. Requester threads should print a message to the user with the IP address of each hostname, and should not exit until all of the threads requests have been satisfied.
 * **Benchmarks**: Determine the ideal number of resolver threads for a given processor core count. Provide benchmark data backing up your determination. Include this documentation in your README.
-* **Conditional Variables**: Implement your synchronization protections using POSIX conditional variables. You have to submit the original project working with mutexes or semaphores to get credit for this or any of the extra credit.
+* **Conditional Variables**: Implement your synchronization protections using POSIX conditional variables. You must submit the original project working with mutexes or semaphores to get credit for this or any of the extra credit.
 * **Conditional Variables in C++11 or newer**: Implement your synchronization protections using C++11 or newer conditional variables. This will require you to change the compilation to C++11 or a newer C compiler so make sure you update the Makefile and include in your tar package of files if you choose this option. You have to submit the original project working with mutexes or semaphores to get credit for this or any of the extra credit.
-* **Go:** Implement the assignment in go using go's thread-safe channels and threads, minimum resolver/requester threads are the same.
-* **Rust:** Implement the assignment in go using Rust in a threaded/thread-safe manner. 
+* **Go:** Implement the assignment in the Go programming language using Go's thread-safe channels and threads, minimum resolver/requester threads are the same.
+* **Rust:** Implement the assignment in the Rust programming language using Rust in a threaded/thread-safe manner. 
 
 
 ## Grading
@@ -118,9 +130,11 @@ To received full credit your program must:
 * Document any resources you use to solve your assignment in the header comment of your file
 * Include your name in the header comment of your file
 
-### DO NOT USE THIS AS VALGRIND HAS ISSUES WITH THREADS, USE IF YOU ARE CURIOUS
+Your program should adhere to good coding style practices.
 
-This includes adhering to good coding style practices. To verify that you do not leak memory, I may use *valgrind* to test your program. To install *valgrind*, use the following command:
+### NOTE: VALGRIND HAS ISSUES WITH THREADS, ONLY USE IF YOU ARE CURIOUS
+
+To verify that you do not leak memory, you may want to use *valgrind* to test your program. To install *valgrind*, use the following command:
 ```
 sudo apt-get install valgrind
 ```
