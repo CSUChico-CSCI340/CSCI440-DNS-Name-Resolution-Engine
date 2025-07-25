@@ -52,10 +52,12 @@ Some files are included with this assignment for your benefit. You are not requi
 3. **util.c** and **util.h** These two files contain the DNS lookup utility function. This function abstracts away a lot of the complexity involved with performing a DNS lookup. The function accepts a hostname as input and generates a corresponding dot-formatted IPv4 IP address string as output.
 	* Please consult the *util.h* header file for more detailed descriptions of each available function.
 4. **input/names\*.txt** This is a set of sample name files. They follow the same format as mentioned earlier. Use them to test your program.
-5. **results-ref.txt** This result file is a sample output of the IPs for the hostnames from all the **names\*.txt** files used as input.
-6. **lookup.c** This program represents an un-threaded solution to this assignment. Feel free to use it as a starting point for your program, or as a reference for using the utility functions and performing file i/o in C.
-7. **pthread-hello.c** A simple threaded "Hello World" program to demonstrate basic use of the `pthread` library.
-8. **Makefile** A GNU Make makefile to build all the code.
+   	* I recommend you make a copy of this folder to have a backup of these input files, e.g. `cp -r input input-original`
+   	* This is useful in case you accidentally overwrite one or more of these files when executing the program
+6. **results-ref.txt** This result file is a sample output of the IPs for the hostnames from all the **names\*.txt** files used as input.
+7. **lookup.c** This program represents an un-threaded solution to this assignment. Feel free to use it as a starting point for your program, or as a reference for using the utility functions and performing file i/o in C.
+8. **pthread-hello.c** A simple threaded "Hello World" program to demonstrate basic use of the `pthread` library.
+9. **Makefile** A GNU Make makefile to build all the code.
 
 ## Additional Specifications
 Many of the specifications for your program are embedded in the descriptions above. This section details additional specifications to which you must adhere.
