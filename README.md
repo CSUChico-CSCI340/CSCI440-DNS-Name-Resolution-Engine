@@ -110,7 +110,7 @@ To receive full credit, you must submit the following items to [INGInious](https
 ## Extra Credit
 There are a few options for receiving extra credit on this assignment. Completion of each of the following items will gain you 5 points of extra credit per item. If you alter any files other than *multi-lookup.c* and *multi-lookup.h* to accomplish the extra credit make sure you submit them as part of your assignment by taring up your whole project directory as a tar.gz file and submit to the extra credit option on INGInious. **Make sure you turn in your original functioning project (which synchronizes access to shared resources using mutexes and/or semaphores) prior to attempting any of the extra credit**. 
 
-You should submit all the extra credit code in one tar.gz file. This tar file should contain a README.md that lists off which extra credit you solved and one or more folders for each extra credit, with the folder name representing the extra credit solved. Depending on the extra credits you complete, you may want to keep a copy of your original functioning program in a folder separate from your extra credit folder(s).
+You should submit all the extra credit code in one tar.gz file. This tar file should contain a README.md that lists off which extra credit you solved, as well as your code for the extra credit (you may submit all extra credit in the same folder or in multiple folders, with the folder name representing the extra credit solved). Depending on the extra credits you complete, you may want to keep a copy of your original functioning program in a folder separate from your extra credit folder(s).
 
 * **Multiple IP Addresses**: Many hostnames return more than a single IP address. Add support for listing an arbitrary number of addresses to your program. These addresses should be printed to the output file as additional comma-separated strings after the hostname. For example:
 ```
@@ -171,3 +171,9 @@ You may wish to consult the man pages for the following items, as they will be u
 * man 3 random
 * man 3 perror
 * man 1 valgrind
+
+The mutex-related man pages may not be installed by default. You can install them using the following:
+```bash
+sudo apt update
+sudo apt install manpages-posix-dev glibc-doc
+```
