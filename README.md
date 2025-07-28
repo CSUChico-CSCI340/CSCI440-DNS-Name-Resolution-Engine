@@ -148,13 +148,13 @@ And to use *valgrind* to monitor your program, use this command:
 valgrind ./multi-lookup text1.txt text2.txt ...... textN.txt results.txt
 ```
 Valgrind should report that you have freed all allocated memory and should not produce any additional warnings or errors.
-You can write your code in any environment you like. But you have to make sure that your programs can be compiled and executed on Ubuntu 18.04.
+You can write your code in any environment you like. But you have to make sure that your programs can be compiled and executed on Ubuntu.
 
 ## References
 Refer to your textbook and class notes for descriptions of producer/consumer and reader/writer problems and the different strategies used to solve them.
 The Internet is also a good resource for finding information related to solving this assignment.
 
-You may wish to consult the man pages for the following items, as they will be useful and/or required to complete this assignment. Note that the first argument to the "man" command is the chapter, insuring that you access the appropriate version of each man page. See example *man man* for more information.
+You may wish to consult the man pages for the following items, as they will be useful and/or required to complete this assignment. Note that the first argument to the "man" command is the chapter, ensuring that you access the appropriate version of each man page. See example *man man* for more information.
 
 * man 7 pthreads
 * man 3 pthread_create
